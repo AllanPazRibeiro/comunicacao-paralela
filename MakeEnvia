@@ -1,0 +1,11 @@
+CC=gcc
+DEPS = Comunica.h
+OBJ = Envia.c Comunica.c 
+CFLAGS=
+PROGRAM=Envia
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+$(PROGRAM): $(OBJ)
+	gcc -o $@ $^ $(CFLAGS)
