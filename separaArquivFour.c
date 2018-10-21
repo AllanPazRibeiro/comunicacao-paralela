@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include <math.h>   // ceil()
-#include <stdlib.h> // exit()
-
-int main(int argc, char *argv[]) {
+#include <math.h>   
+#include <stdlib.h>
+#include <pthread.h>
+void separaAPorraToda(){
 	char splitAParadaToda();
 	
 	FILE *ptr_source, *ptr_part, *ptr_combinations;
@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
 		    (byte = fgetc(ptr_source)) != EOF; written_bytes++)
 		{
 			fscanf(ptr_part,"%c",&cr);
-			if(cr!=(fgetc(ptr_combinations)!=EOF)){
+			if(written_bytes != 0 && cr!=(fgetc(ptr_combinations)!=EOF)){
 				fputc(byte, ptr_part);
 			}
 			
@@ -46,4 +46,16 @@ int main(int argc, char *argv[]) {
 	fclose(ptr_source);
 	
 	return byte;
+}
+
+int main(int argc, char *argv[]) {
+	int i; 
+    pthread_t tid; 
+  
+    // Let us create three threads 
+    for (i = 0; i < 3; i++) 
+        pthread_create(&tid, NULL, separaAPorraToda, (void *)&tid); 
+	
+	pthread_exit(NULL); 
+    return 0;
 }
