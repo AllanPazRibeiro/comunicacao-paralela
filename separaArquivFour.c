@@ -10,7 +10,7 @@ int separaAPorraToda(){
 	unsigned long int part_size, written_bytes; // long int para o tamanho em bytes e bytes escritos nos arquivos
 	int byte; 
 	int bytes[byte];
-	char combinacoes[255]; //Carriage return, vulgo enter space meu brother
+	int combinacoes[255]; //Carriage return, vulgo enter space meu brother
 
 	ptr_source = fopen("sequencia.txt", "rb"); //Arquivo randomico do teacher PC bolsominion
 	ptr_combinations = fopen("padroes.txt", "rb"); // Arquivo das sequencias do teacher PC bolsominion
